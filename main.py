@@ -23,6 +23,7 @@ data = {
     'size': '1024x1024'  # Desired size of the generated image 
 }
 
+print("123")
 # POST request to the DALL·E API
 response = requests.post(url, headers=headers, data=json.dumps(data))
 
