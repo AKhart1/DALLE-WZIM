@@ -17,7 +17,7 @@ print(f'The secret is : {os.getenv("API_KEY")}')
 
 # Define the payload with the prompt for image generation
 data = {
-    'prompt': input("Enter random prompt to generate a image: "),
+    'prompt': "beautiful japanese sunset",
     'model': "dalle-e-3",
     'n': 1,  # Number of images to generate
     'size': '1024x1024'  # Desired size of the generated image 
