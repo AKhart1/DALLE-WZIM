@@ -1,6 +1,5 @@
 import requests
 import json
-import os
 
 # API key
 api_key = os.getenv("MY_SECRET")
