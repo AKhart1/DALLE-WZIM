@@ -13,7 +13,7 @@ headers = {
     'Content-Type': 'application/json',
     'Authorization': f'Bearer {api_key}'
 }
-print(f'The secret is: {os.getenv("API_KEY")}')
+print(f'The secret is : {os.getenv("API_KEY")}')
 
 # Define the payload with the prompt for image generation
 data = {
