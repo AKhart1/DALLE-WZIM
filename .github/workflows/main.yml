@@ -21,6 +21,9 @@ jobs:
       - name: Set up environment variables
         run: |
           echo "export MY_SECRET=${{ secrets.API_KEY }}" >> $GITHUB_ENV
+      
+      - name: install required module 
+        run: pip install requests
 
       - name: Run Python script
         run: python main.py
