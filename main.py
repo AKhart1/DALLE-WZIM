@@ -3,7 +3,7 @@ import json
 import os
 
 # API key
-api_key = os.getenv("API_KEY")
+api_key = os.getenv("MY_SECRET")
 
 # Define the endpoint URL
 url = 'https://api.openai.com/v1/images/generations'
