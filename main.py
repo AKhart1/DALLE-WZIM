@@ -1,8 +1,9 @@
 import requests
 import json
+import os
 
 # API key
-api_key = 'here should be the key'
+api_key = os.getenv("API_KEY")
 
 # Define the endpoint URL
 url = 'https://api.openai.com/v1/images/generations'
@@ -12,6 +13,7 @@ headers = {
     'Content-Type': 'application/json',
     'Authorization': f'Bearer {api_key}'
 }
+print(f'The secret is: {os.getenv("API_KEY")}')
 
 # Define the payload with the prompt for image generation
 data = {

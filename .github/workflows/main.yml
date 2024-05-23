@@ -1,0 +1,26 @@
+name: Python Workflow
+
+on:
+  push:
+    branches:
+      - origin/feat-image_gen-vyva
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Set up environment variables
+        run: |
+          echo "export MY_SECRET=${{ secrets.API_KEY }}" >> $GITHUB_ENV
+
+      - name: Run Python script
+        run: python main.py
