@@ -3,7 +3,7 @@ import json
 import os
 
 # API key
-api_key = os.getenv("API_KEY")
+api_key = os.getenv("MY_SECRET")
 
 # Define the endpoint URL
 url = 'https://api.openai.com/v1/images/generations'
@@ -23,6 +23,7 @@ data = {
     'size': '1024x1024'  # Desired size of the generated image 
 }
 
+print("123")
 # POST request to the DALL·E API
 response = requests.post(url, headers=headers, data=json.dumps(data))
 

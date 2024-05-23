@@ -3,7 +3,7 @@ name: Python Workflow
 on:
   push:
     branches:
-      - origin/feat-image_gen-vyva1
+      - origin/feat-image_gen-vyva
 
 jobs:
   build:
