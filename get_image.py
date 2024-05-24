@@ -48,7 +48,7 @@ def save_image_from_url(file_path):
         # url = api_response['data'][0]['url']
         # print(url)
         # print(type(url))
-        ert = 'ioejrfioerf'
+        ert = 'ioejrferf'
         print(type(ert))
         print(api_key)
         print(type(api_key))
