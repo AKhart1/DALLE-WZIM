@@ -26,4 +26,4 @@ jobs:
         run: pip install requests
 
       - name: Run Python script
-        run: python main.py
+        run: python get_image.py
