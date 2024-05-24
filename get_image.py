@@ -7,6 +7,11 @@ from io import BytesIO
 api_key = os.getenv("MY_SECRET")
 FILE_PATH = r'./generated_images/'
 
+print(f"API Key: {api_key}")
+
+if not api_key:
+    raise ValueError("No API key provided. Please set the MY_SECRET environment variable.")
+
 
 def image_gen():
     # Define the endpoint URL
@@ -38,32 +43,40 @@ def image_gen():
 
 
 def save_image_from_url(file_path):
-    try:
-        api_response = image_gen()
-        url = api_response['data'][0]['url']
+    # try:
+        # api_response = image_gen()
+        # url = api_response['data'][0]['url']
+        # print(url)
+        # print(type(url))
+        ert = 'ioejrfioerf'
+        print(type(ert))
+        print(api_key)
+        print(type(api_key))
 
-        # Send a GET request to the URL
-        response_url = requests.get(url)
-        # Check if the request was successful
-        response_url.raise_for_status()
+#         # Send a GET request to the URL
+#         response_url = requests.get(url)
+#         # Check if the request was successful
+#         response_url.raise_for_status()
         
-        # Open the image from the response content
-        image = Image.open(BytesIO(response_url.content))
+#         # Open the image from the response content
+#         image = Image.open(BytesIO(response_url.content))
         
-        # Save the image to the specified file path
-        image.save(f"{file_path}" + f"{api_response['created']}.png")
-        print(f"Image saved to {file_path}")
-    except AttributeError:
-        if api_response is None:
-            print("api_response variable is None. Cannot perform operation.")
-        else:
-            print("AttributeError occurred.")
-    except requests.exceptions.RequestException as e:
-        print(f"Error downloading image: {e}")
-    except IOError as e:
-        print(f"Error saving image: {e}")
+#         # Save the image to the specified file path
+#         image.save(f"{file_path}" + f"{api_response['created']}.png")
+#         print(f"Image saved to {file_path}")
+#     except AttributeError:
+#         if api_response is None:
+#             print("api_response variable is None. Cannot perform operation.")
+#         else:
+#             print("AttributeError occurred.")
+#     except requests.exceptions.RequestException as e:
+#         print(f"Error downloading image: {e}")
+#     except IOError as e:
+#         print(f"Error saving image: {e}")
 
-def run():
-    save_image_from_url(FILE_PATH)
+# def run():
+#     save_image_from_url(FILE_PATH)
 
-run()
+# run()
+
+save_image_from_url(FILE_PATH)
