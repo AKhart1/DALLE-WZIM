@@ -5,7 +5,7 @@ from PIL import Image
 from io import BytesIO
 
 api_key = os.getenv("MY_SECRET")
-FILE_PATH = '.\generated_images\\'
+FILE_PATH = r'./generated_images/'
 
 
 def image_gen():
@@ -68,4 +68,4 @@ def image_gen():
 
 # run()
 
-image_gen()
+print(image_gen())
