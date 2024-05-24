@@ -5,7 +5,7 @@ from PIL import Image
 from io import BytesIO
 
 api_key = os.getenv("MY_SECRET")
-FILE_PATH = '.\generated_images\\'
+FILE_PATH = '.\generated_images'
 
     
 # Define the endpoint URL
