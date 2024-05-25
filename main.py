@@ -34,5 +34,5 @@ if response.status_code == 200:
     # Print the URL of the generated image
     print('Generated image URL:', response_data['data'][0]['url'])
 else:
-    # Print the error message
+    # Error message
     print('Error:', response.status_code, response.text)
