@@ -26,4 +26,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run Python script
-        run: python get_image.py
+        run: python app/main.py

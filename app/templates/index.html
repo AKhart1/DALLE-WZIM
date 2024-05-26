@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DALLE-WZIM</title>
-  </head>
-  <body>
-    <h1>Dall-E WZIM!</h1>
-    <h2>Response Data<h2>
-    <h3>{{ response }}<h3>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Image Generator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Generate Image with OpenAI</h1>
+    <form id="promptForm">
+        <label for="prompt">Enter prompt:</label>
+        <input type="text" id="prompt" name="prompt" required>
+        <button type="submit">Generate Image</button>
+    </form>
+    <div id="result">
+        <img id="generatedImage" src="" alt="" style="display:none;">
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#promptForm').on('submit', function(e) {
+                e.preventDefault();
+                var prompt = $('#prompt').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/generate_image',  // Corrected URL
+                    data: { prompt: prompt },
+                    success: function(response) {
+                        if (response.image_url) {
+                            $('#generatedImage').attr('src', response.image_url).show();
+                        } else {
+                            alert('Error: ' + response.error);
+                        }
+                    },
+                    error: function(response) {
+                        alert('Failed to generate image.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
 </html>
