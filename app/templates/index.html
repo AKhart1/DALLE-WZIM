@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Image Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="../static/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
-
 <body>
-    <h1>Generate Image with OpenAI</h1>
-    <form id="promptForm">
-        <label for="prompt">Enter prompt:</label>
-        <input type="text" id="prompt" name="prompt" required>
-        <button type="submit">Generate Image</button>
-    </form>
-    <div id="result">
-        <img id="generatedImage" src="" alt="" style="display:none;">
+    <header>
+        <div class="logo">DALL·E 2</div>
+        <nav>
+            <form class="search-container" id="promptForm">
+                <input type="text" id="prompt" name="prompt" placeholder="Wyszukaj...">
+                <button type="submit">Search</button>
+            </form>
+            <a href="collections.html">Collections</a>
+            <a href="history.html">History</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="updates">
+            <h2>Twoje inspiracje</h2>
+            <p>Na tej stronie znajdują się różne obrazki wygenerowane przez różnych autorów.</p>
+            <p>Galeria zawiera różnorodne obrazy, od abstrakcyjnych malowideł po realistyczne przedstawienia. Każdy obrazek jest opatrzony krótkim opisem, informującym o jego treści.</p>
+            <p>Ta galeria jest aktualizowana automatycznie poprzez dodanie nowego dzieła sztuki, które można podziwiać w sekcji poniżej.</p>
+        </div>
+        <div class="gallery">
+        </div>
     </div>
 </body>
-
 </html>
