@@ -5,11 +5,18 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            url: '/generate_image', // Corrected URL
+            url: '/generate_image', // Ensure this endpoint is correct
             data: { prompt: prompt },
+            // contentType: 'application/json',
             success: function(response) {
                 if (response.image_url) {
-                    $('#generatedImage').attr('src', response.image_url).show();
+                    var newGalleryItem = `
+                    <div class="gallery-item">
+                        <img src="${response.image_url}" alt="">
+                        <div class="description">${prompt}</div>
+                    </div>
+                `;
+                $('.gallery').prepend(newGalleryItem);
                 } else {
                     alert('Error: ' + response.error);
                 }

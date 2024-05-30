@@ -11,6 +11,7 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ddd;
+    position: relative; /* Add this line */
 }
 header .logo {
     font-size: 24px;
@@ -19,6 +20,8 @@ header .logo {
 header nav {
     display: flex;
     align-items: center;
+    flex: 1; /* Add this line */
+    justify-content: flex-end; /* Add this line */
 }
 header nav a {
     margin: 0 15px;
@@ -27,12 +30,25 @@ header nav a {
     font-size: 16px;
 }
 header .search-container {
-    position: relative;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
 }
 header .search-container input[type="text"] {
     padding: 8px;
     border: 1px solid #ddd;
-    border-radius: 15px;
+    border-radius: 15px 0 0 15px;
+    font-family: 'Palatino Linotype', sans-serif;
+}
+header .search-container button {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-left: none;
+    border-radius: 0 15px 15px 0;
+    background-color: #f8f8f8;
+    cursor: pointer;
     font-family: 'Palatino Linotype', sans-serif;
 }
 .container {
@@ -47,7 +63,6 @@ header .search-container input[type="text"] {
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 .collections-section {
     margin-bottom: 30px;
 }
