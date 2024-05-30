@@ -12,14 +12,17 @@
     <header>
         <div class="logo">DALL·E 2</div>
         <nav>
-            <form class="search-container" id="promptForm">
-                <input type="text" id="prompt" name="prompt" placeholder="Wyszukaj...">
-                <button type="submit">Search</button>
-            </form>
             <a href="collections.html">Collections</a>
             <a href="history.html">History</a>
         </nav>
     </header>
+    <div class="search-bar-container">
+        <form class="search-container" id="promptForm">
+            <input type="text" id="prompt" name="prompt" placeholder="Wyszukaj...">
+            <button type="submit">Search</button>
+            <div class="spinner" id="spinner"></div>
+        </form>
+    </div>
     <div class="container">
         <div class="updates">
             <h2>Twoje inspiracje</h2>
