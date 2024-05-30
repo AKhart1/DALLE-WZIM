@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 header {
     background-color: white;
     padding: 20px;
@@ -11,51 +12,71 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ddd;
-    position: relative; /* Add this line */
+    position: relative;
 }
+
 header .logo {
     font-size: 24px;
     font-weight: bold;
 }
+
 header nav {
     display: flex;
     align-items: center;
-    flex: 1; /* Add this line */
-    justify-content: flex-end; /* Add this line */
+    flex: 1;
+    justify-content: flex-end;
 }
+
 header nav a {
     margin: 0 15px;
     text-decoration: none;
     color: black;
     font-size: 16px;
 }
-header .search-container {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+
+.search-bar-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Add margin to separate from the header */
+}
+
+.search-container {
     display: flex;
     align-items: center;
+    width: 50%; /* Adjust the width as needed */
 }
-header .search-container input[type="text"] {
-    padding: 8px;
+
+.search-bar-container input[type="text"] {
+    width: 100%;
+    padding: 12px;
     border: 1px solid #ddd;
     border-radius: 15px 0 0 15px;
     font-family: 'Palatino Linotype', sans-serif;
+    font-size: 16px; /* Increase font size */
 }
-header .search-container button {
-    padding: 8px 16px;
+
+.search-bar-container button {
+    padding: 12px 20px;
     border: 1px solid #ddd;
     border-left: none;
     border-radius: 0 15px 15px 0;
     background-color: #f8f8f8;
     cursor: pointer;
     font-family: 'Palatino Linotype', sans-serif;
+    font-size: 16px; /* Increase font size */
 }
+
+.search-bar-container button:hover {
+    background-color: #e0e0e0;
+}
+
 .container {
     max-width: 1200px;
     margin: 20px auto;
     padding: 0 20px;
 }
+
 .updates {
     background: white;
     padding: 20px;
@@ -63,14 +84,35 @@ header .search-container button {
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #000;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    display: none;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .collections-section {
     margin-bottom: 30px;
 }
+
 .collections {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
 }
+
 .collection-item {
     display: flex;
     align-items: center;
@@ -81,50 +123,61 @@ header .search-container button {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
+
 .collection-item .collection-icon {
     font-size: 24px;
     margin-right: 10px;
 }
+
 .collection-item.create-collection {
     justify-content: center;
 }
+
 .collection-info h4 {
     margin: 0 0 5px 0;
 }
+
 .collection-info p {
     margin: 0;
     color: grey;
 }
+
 .tabs {
     margin-bottom: 20px;
 }
+
 .tabs a {
     margin-right: 20px;
     text-decoration: none;
     color: grey;
     font-size: 16px;
 }
+
 .tabs a.active {
     font-weight: bold;
     color: black;
 }
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
 }
+
 .gallery-item {
     position: relative;
     overflow: hidden;
     cursor: pointer;
     border-radius: 8px;
 }
+
 .gallery-item img {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 8px;
 }
+
 .gallery-item .description {
     position: absolute;
     top: 0;
@@ -140,6 +193,7 @@ header .search-container button {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
+
 .gallery-item:hover .description {
     opacity: 1;
 }

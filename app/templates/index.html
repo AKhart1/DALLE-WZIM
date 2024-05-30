@@ -12,14 +12,17 @@
     <header>
         <div class="logo">DALL·E 2</div>
         <nav>
-            <form class="search-container" id="promptForm">
-                <input type="text" id="prompt" name="prompt" placeholder="Wyszukaj...">
-                <button type="submit">Search</button>
-            </form>
             <a href="collections.html">Collections</a>
             <a href="history.html">History</a>
         </nav>
     </header>
+    <div class="search-bar-container">
+        <form class="search-container" id="promptForm">
+            <input type="text" id="prompt" name="prompt" placeholder="Wyszukaj...">
+            <button type="submit">Search</button>
+            <div class="spinner" id="spinner"></div>
+        </form>
+    </div>
     <div class="container">
         <div class="updates">
             <h2>Twoje inspiracje</h2>
@@ -27,7 +30,7 @@
             <p>Galeria zawiera różnorodne obrazy, od abstrakcyjnych malowideł po realistyczne przedstawienia. Każdy obrazek jest opatrzony krótkim opisem, informującym o jego treści.</p>
             <p>Ta galeria jest aktualizowana automatycznie poprzez dodanie nowego dzieła sztuki, które można podziwiać w sekcji poniżej.</p>
         </div>
-        <div class="gallery">
+        <div class="gallery" id="image-container">
         </div>
     </div>
 </body>
