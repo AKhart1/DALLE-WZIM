@@ -1,12 +1,7 @@
 {
-    "images": [
-        {
+    "images": [{
             "prompt": "sunrise in ancient village",
             "name": "1716993347.png"
-        },
-        {
-            "prompt": "ultra large shopping cart",
-            "name": "1716993624.png"
         },
         {
             "prompt": "Italy Sunset",
@@ -23,10 +18,6 @@
         {
             "prompt": "Fat cat running through the hospital ",
             "name": "1717072068.png"
-        },
-        {
-            "prompt": "killer vyva",
-            "name": "1717073329.png"
         },
         {
             "prompt": "futuristic Chinese town",
