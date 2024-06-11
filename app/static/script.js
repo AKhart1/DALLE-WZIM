@@ -1,4 +1,30 @@
 $(document).ready(function() {
+    $('#prompt').on('focus', function() {
+        $(this).attr('placeholder', '');
+    }).on('blur', function() {
+        if ($(this).val() === '') {
+            $(this).attr('placeholder', 'Wyszukaj...');
+        }
+    });
+
+    // Function to set the theme
+    function setTheme(theme) {
+        document.body.classList.remove('light-theme', 'dark-theme');
+        document.body.classList.add(theme);
+        localStorage.setItem('theme', theme);
+        $('#theme-switcher').prop('checked', theme === 'dark-theme');
+    }
+
+    // Get the saved theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'light-theme';
+    setTheme(savedTheme);
+
+    // Event listener for the theme switcher
+    $('#theme-switcher').on('change', function() {
+        const newTheme = this.checked ? 'dark-theme' : 'light-theme';
+        setTheme(newTheme);
+    });
+
     const spinner = document.createElement('div');
     spinner.classList.add('spinner');
     spinner.style.display = 'none';
