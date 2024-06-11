@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 import json
 from PIL import Image
 from io import BytesIO
+import subprocess
+from auto_prompt import generate_description
 
 
 SAVE_PATH = "./app/static/generated_images/"
@@ -54,7 +56,12 @@ def get_images():
     with open("./app/image_data.json", "r") as f:
         images_data = json.load(f)['images']
     return jsonify(images_data)
-    
+
+@app.route('/generate-description')
+def generate_description_route():
+    description = generate_description()
+    return description
+
 def save_image(response, prompt):
     # Load the JSON file
     with open("./app/image_data.json", "r") as f:
