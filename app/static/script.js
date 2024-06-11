@@ -30,6 +30,20 @@ $(document).ready(function() {
     spinner.style.display = 'none';
     document.getElementById('promptForm').appendChild(spinner);
 
+    document.getElementById("random-prompt-btn").addEventListener("click", function() {
+        // Fetch the generated description from Flask route
+        fetch('/generate-description')  // Change to /generate-description
+            .then(response => response.text())
+            .then(description => {
+                // Get the search input element
+                var searchInput = document.getElementById("prompt");
+                // Set the description in the input field
+                searchInput.value = description;
+            })
+            .catch(error => console.error('Error:', error));
+    });
+    
+
     $('#promptForm').on('submit', function(e) {
         e.preventDefault(); // Prevent the default form submission
 
