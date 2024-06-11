@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: 'Palatino Linotype', sans-serif;
     background-color: #f4f4f4;
@@ -50,21 +51,31 @@ header nav a {
 .search-bar-container input[type="text"] {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
+    border: none; /* Remove the border */
     border-radius: 15px 0 0 15px;
     font-family: 'Palatino Linotype', sans-serif;
     font-size: 16px; /* Increase font size */
+    text-align: center;
+}
+
+.search-bar-container input[type="text"]:focus {
+    outline: none; /* Remove the focus outline */
 }
 
 .search-bar-container button {
     padding: 12px 20px;
-    border: 1px solid #ddd;
+    border: none; /* Remove the border */
     border-left: none;
     border-radius: 0 15px 15px 0;
     background-color: #f8f8f8;
     cursor: pointer;
     font-family: 'Palatino Linotype', sans-serif;
     font-size: 16px; /* Increase font size */
+    transition: background-color 0.3s;
+}
+
+.search-bar-container button:focus {
+    outline: none; /* Remove the focus outline */
 }
 
 .search-bar-container button:hover {
@@ -94,6 +105,7 @@ header nav a {
     animation: spin 1s linear infinite;
     display: none;
 }
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -101,45 +113,6 @@ header nav a {
     100% {
         transform: rotate(360deg);
     }
-}
-
-.collections-section {
-    margin-bottom: 30px;
-}
-
-.collections {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.collection-item {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.collection-item .collection-icon {
-    font-size: 24px;
-    margin-right: 10px;
-}
-
-.collection-item.create-collection {
-    justify-content: center;
-}
-
-.collection-info h4 {
-    margin: 0 0 5px 0;
-}
-
-.collection-info p {
-    margin: 0;
-    color: grey;
 }
 
 .tabs {
@@ -196,4 +169,120 @@ header nav a {
 
 .gallery-item:hover .description {
     opacity: 1;
+}
+
+/* Switcher styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 25px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 21px;
+    width: 21px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input:checked + .slider {
+    background-color: #636363;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* Add icons for light and dark mode */
+.slider:after {
+    content: '\2600'; /* Unicode for sun symbol */
+    position: absolute;
+    color: #f39c12;
+    top: 50%;
+    left: 6px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    transition: .4s;
+}
+
+input:checked + .slider:after {
+    content: '\1F319'; /* Unicode for moon symbol */
+    color: #f1c40f;
+    left: 28px;
+}
+
+/* Light Theme */
+body.light-theme {
+    background-color: #e7e7e7;
+    color: #3f3f3f;
+}
+
+body.light-theme header {
+    background-color: white;
+    color: #000;
+}
+
+body.light-theme .search-bar-container input[type="text"],
+body.light-theme .search-bar-container button {
+    background-color: #f8f8f8;
+    color: #000;
+    transition: background-color 0.3s;
+}
+
+body.light-theme .search-bar-container button:hover {
+    background-color: #dcdcdc; /* slightly darker color */
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #424242;
+    color: #fff;
+}
+
+body.dark-theme header {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-theme .search-bar-container input[type="text"],
+body.dark-theme .search-bar-container button {
+    background-color: #333;
+    color: #d1d1d1;
+    transition: background-color 0.3s;
+}
+
+body.dark-theme .search-bar-container button:hover {
+    background-color: #555; /* slightly lighter color */
+}
+
+body.dark-theme .updates {
+    background-color: #575757;
+    color: #fff;
 }
