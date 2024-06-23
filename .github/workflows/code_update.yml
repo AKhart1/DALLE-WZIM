@@ -6,7 +6,8 @@ on:
       - main
 
 jobs:
-  build:
+  Deploy:
+    name: Deploy To EC2
     runs-on: ubuntu-latest
 
     steps:
@@ -18,11 +19,10 @@ jobs:
           USER_NAME: ${{ secrets.EC2_USER }}
 
         run: |
-          echo "$PRIVATE_KEY"
           echo "$HOSTANAME"
           echo "$USER_NAME"
-          echo "$PRIVATE_KEY" > WebAppKey.pem && chmod 600 WebAppKey.pem
-          ssh -o StrictHostKeyChecking=no -i "WebAppKey.pem" ${EC2_USER}@${EC2_HOST} '
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${EC2_USER}@${EC2_HOST} '
         
               # Now we have got the access of EC2 and we will start the deploy .
               sudo kill $(pgrep -f "python3 app.py")
