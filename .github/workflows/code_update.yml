@@ -1,0 +1,33 @@
+name: Update Source Code of WebApp on the EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        env:
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          HOSTNAME: ${{ secrets.EC2_HOST }}
+          USER_NAME: ${{ secrets.EC2_USER }}
+
+        run: |
+          echo "$PRIVATE_KEY" > WebAppKey.pem && chmod 400 WebAppKey.pem
+          ssh -o StrictHostKeyChecking=no -i "WebAppKey.pem" ${EC2_USER}@${EC2_HOST} '
+        
+              # Now we have got the access of EC2 and we will start the deploy .
+              sudo kill $(pgrep -f "python3 app.py")
+              cd /home/ubuntu/DALLE-WZIM
+              git pull origin main
+              cd app/
+              python3 app.py
+          '
+              
+
+          

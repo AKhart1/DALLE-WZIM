@@ -20,8 +20,6 @@ app = Flask(__name__, static_folder='static')
 
 # Get the OpenAI API key from the environment variables
 OPENAI_API_KEY = get_secret()
-# print(TEST_API_KEY)
-# OPENAI_API_KEY = os.getenv("MY_SECRET", None)
 if not OPENAI_API_KEY:
     raise ValueError("No API key found in environment variables.")
 
