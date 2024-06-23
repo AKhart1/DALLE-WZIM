@@ -8,8 +8,10 @@ from io import BytesIO
 import subprocess
 from auto_prompt import generate_description
 
+SAVE_PATH = os.path.join(os.path.dirname(__file__), "static/generated_images/")
+IMAGES_PATH =  os.path.join(os.path.dirname(__file__), 'image_data.json')
+print(f"SAVE_PATH: {SAVE_PATH}, IMAGES_PATH: {IMAGES_PATH}")
 
-SAVE_PATH = "./app/static/generated_images/"
 # Load environment variables from the .env file
 load_dotenv()
 
@@ -53,7 +55,7 @@ def generate_image():
 def get_images():
     # Get all file paths and names of PNG images in the .json file
     # Load the JSON file
-    with open("./app/image_data.json", "r") as f:
+    with open(IMAGES_PATH, "r") as f:
         images_data = json.load(f)['images']
     return jsonify(images_data)
 
@@ -64,7 +66,7 @@ def generate_description_route():
 
 def save_image(response, prompt):
     # Load the JSON file
-    with open("./app/image_data.json", "r") as f:
+    with open(IMAGES_PATH, "r") as f:
         images_data = json.load(f)
     # Create new data block
     new_image_data = {
@@ -77,7 +79,7 @@ def save_image(response, prompt):
     images_data["images"].append(new_image_data)
 
     # Save the updated JSON file
-    with open("./app/image_data.json", "w") as f:
+    with open(IMAGES_PATH, "w") as f:
         json.dump(images_data, f, indent=4)  # Add indentation for readability
 
     url = response['data'][0]['url']
@@ -93,4 +95,4 @@ def save_image(response, prompt):
     print(f"Image saved to {SAVE_PATH}")
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=5000)
