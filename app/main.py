@@ -34,9 +34,11 @@ def generate_image():
         'Content-Type': 'application/json'
     }
     data = {
-        'prompt': prompt,
-        'n': 1,
-        'size': '512x512'
+        'model':"dall-e-3",
+        'prompt':prompt,
+        'size':"1024x1024",
+        'quality':"standard",
+        'n':1,
     }
 
     response = requests.post(OPENAI_API_URL, headers=headers, json=data)
