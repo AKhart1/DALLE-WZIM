@@ -79,13 +79,13 @@ The application will be accessible at http://127.0.0.1:5000.
 
 ### Generating Images
 
-1. Navigate to http://127.0.0.1:5000.
+1. Navigate to http://13.60.129.45:5000.
 2. Enter a prompt in the input field and submit.
 3. The generated image will be displayed on the page.
 
 ### Viewing Generated Images
 
-- Navigate to http://127.0.0.1:5000/get_images to view the list of all generated images in JSON format.
+- Navigate to http://13.60.129.45:5000/get_images to view the list of all generated images in JSON format.
 
 ## Environment Variables
 
