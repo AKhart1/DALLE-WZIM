@@ -36,7 +36,7 @@ jobs:
               ls -la /home/$USER_NAME/DALLE-WZIM
               cd /home/$USER_NAME/DALLE-WZIM/app/
               ls -la /home/$USER_NAME/DALLE-WZIM/app/
-              sudo nohup python3 app.py > app.log 2>&1 & disown
+              nohup python3 app.py &
           EOF
               
 
