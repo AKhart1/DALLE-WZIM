@@ -26,9 +26,10 @@ jobs:
         
               # Now we have got the access of EC2 and we will start the deploy .
               sudo kill $(pgrep -f "python3 app.py")
-              cd /home/ubuntu/DALLE-WZIM
-              git pull origin main
-              cd app/
+              cd /home/ubuntu
+              sudo rm -rf DALLE-WZIM/
+              git clone https://github.com/AKhart1/DALLE-WZIM.git
+              cd DALLE_WZIM/aoo
               python3 app.py
           '
               
