@@ -29,7 +29,7 @@ jobs:
               cd /home/ubuntu
               sudo rm -rf DALLE-WZIM/
               git clone https://github.com/AKhart1/DALLE-WZIM.git
-              cd DALLE_WZIM/aoo
+              cd DALLE_WZIM/app/
               python3 app.py
           '
               
