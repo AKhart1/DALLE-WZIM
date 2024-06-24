@@ -30,8 +30,9 @@ jobs:
                 sudo kill $(pgrep -f "python3 app.py")
               fi              
               cd /home/$USER_NAME
+              sudo chown -R $USER_NAME:$USER_NAME /home/$USER_NAME
               sudo rm -rf DALLE-WZIM/
-              git clone https://github.com/AKhart1/DALLE-WZIM.git
+              sudo git clone https://github.com/AKhart1/DALLE-WZIM.git
               ls -la /home/$USER_NAME/DALLE-WZIM
               cd /home/$USER_NAME/DALLE-WZIM/app/
               ls -la /home/$USER_NAME/DALLE-WZIM/app/
