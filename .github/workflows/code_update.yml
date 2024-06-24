@@ -22,16 +22,19 @@ jobs:
           echo "$HOSTANAME"
           echo "$USER_NAME"
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} << 'EOF'
         
               # Now we have got the access of EC2 and we will start the deploy .
+              set -e
+              if pgrep -f "python3 app.py"; then
               sudo kill $(pgrep -f "python3 app.py")
+              fi              
               cd /home/ubuntu
               sudo rm -rf DALLE-WZIM/
               git clone https://github.com/AKhart1/DALLE-WZIM.git
               cd DALLE_WZIM/app/
-              python3 app.py
-          '
+              nohup python3 app.py &
+          EOF
               
 
           
