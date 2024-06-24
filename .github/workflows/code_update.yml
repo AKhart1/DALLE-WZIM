@@ -29,10 +29,12 @@ jobs:
               if pgrep -f "python3 app.py"; then
                 sudo kill $(pgrep -f "python3 app.py")
               fi              
-              cd /home/ubuntu
+              cd /home/$USER_NAME
               sudo rm -rf DALLE-WZIM/
               git clone https://github.com/AKhart1/DALLE-WZIM.git
-              cd /home/ubuntu/DALLE_WZIM/app/
+              ls -la /home/$USER_NAME/DALLE-WZIM
+              cd /home/$USER_NAME/DALLE-WZIM/app/
+              ls -la /home/$USER_NAME/DALLE-WZIM/app/
               nohup python3 app.py &
           EOF
               
