@@ -7,7 +7,7 @@ from PIL import Image
 from io import BytesIO
 import subprocess
 from auto_prompt import generate_description
-from tmp import get_secret
+from get_secret import get_secret
 
 SAVE_PATH = os.path.join(os.path.dirname(__file__), "static/generated_images/")
 IMAGES_PATH =  os.path.join(os.path.dirname(__file__), 'image_data.json')
@@ -20,6 +20,8 @@ app = Flask(__name__, static_folder='static')
 
 # Get the OpenAI API key from the environment variables
 OPENAI_API_KEY = get_secret()
+# For local testing
+# OPENAI_API_KEY = os.getenv("MY_SECRET")
 if not OPENAI_API_KEY:
     raise ValueError("No API key found in environment variables.")
 
