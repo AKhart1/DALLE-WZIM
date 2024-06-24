@@ -22,7 +22,7 @@ jobs:
           echo "$HOSTANAME"
           echo "$USER_NAME"
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${EC2_USER}@${EC2_HOST} '
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
         
               # Now we have got the access of EC2 and we will start the deploy .
               sudo kill $(pgrep -f "python3 app.py")
