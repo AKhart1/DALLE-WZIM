@@ -117,6 +117,7 @@ gallery-generator/
 - requests
 - python-dotenv
 - Pillow
+- Boto3
 
 Install the dependencies using:
 
@@ -127,6 +128,14 @@ pip install -r requirements.txt
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Deployment on AWS EC2 (using terraform configuration)
+
+The application is deployed on an AWS EC2 instance, utilizing the following AWS services and configurations:
+- IAM Roles: Secure access management for the EC2 instance.
+- Elastic IPs: Static IP address for reliable access.
+- Security Groups: Firewall rules to control traffic to the EC2 instance.
+- Secret Manager: Secure sensetive data as tokens, passwords and etc.
 
 
 
